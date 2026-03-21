@@ -6,18 +6,23 @@ A 2D state-based game using as reference the franquise The Legend of Zelda.
 An adventure game about taking enough coins to buy a sword to kill the enemies and escape using pygame.
 
 Image of the game:
+
 ![](screenshots/presentation.png)
 
 Image of sword spawning at having 10 coins:
+
 ![](screenshots/sword_spawn.png)
 
 Image of portal spawning after defeating all the enemies:
+
 ![](screenshots/portal_spawn.png)
 
 Image of winning the game after enter the portal:
+
 ![](screenshots/win.png)
 
 Image of game over after touch an enemy without the sword:
+
 ![](screenshots/game_over.png)
 
 
