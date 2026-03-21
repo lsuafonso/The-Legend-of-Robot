@@ -37,7 +37,7 @@ Before running this project, ensure you have the following installed:
 - **Python 3.12+**
 - **Git**: To clone this repository use:
 ```powershell
-git clone https://github.com/lsuafonso/.git
+git clone https://github.com/lsuafonso/The-Legend-of-Robot.git
 ```
 - **Pygame**: You can install it using:
 ```powershell
