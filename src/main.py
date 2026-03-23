@@ -29,16 +29,27 @@ class Robot:
         self.velocity = 3
 
     def move(self, keys, window_width, window_height):
+        dx = 0
+        dy = 0
 
         # Movement management with boundary checking.
         if keys[pygame.K_LEFT] and self.rect.left > 0:
-            self.rect.x -= self.velocity
+            dx = -1
         if keys[pygame.K_RIGHT] and self.rect.right < window_width:
-            self.rect.x += self.velocity
+            dx = 1
         if keys[pygame.K_UP] and self.rect.top > 0:
-            self.rect.y -= self.velocity
+            dy = -1
         if keys[pygame.K_DOWN] and self.rect.bottom < window_height:
-            self.rect.y += self.velocity
+            dy = 1
+
+        # Make the diagonal movement unitary
+        if dx != 0 and dy != 0:
+            factor = 0.7071
+        else:
+            factor = 1
+
+        self.rect.x += dx * self.velocity * factor
+        self.rect.y += dy * self.velocity * factor
 
     def draw(self, window):
 
@@ -100,16 +111,27 @@ class Monster:
         self.rect.y = random.randint(-500, -100)
 
     def persecute(self, robot_rect):
+        dx = 0
+        dy = 0
 
         # A simple AI algorithm that make the monster chase the robot.
         if self.rect.x < robot_rect.x:
-            self.rect.x += self.velocity
+            dx = 1
         elif self.rect.x > robot_rect.x:
-            self.rect.x -= self.velocity
+            dx = -1
         if self.rect.y < robot_rect.y:
-            self.rect.y += self.velocity
+            dy = 1
         elif self.rect.y > robot_rect.y:
-            self.rect.y -= self.velocity
+            dy = -1
+
+        # Make the diagonal movement unitary
+        if dx != 0 and dy != 0:
+            factor = 0.7071
+        else:
+            factor = 1
+
+        self.rect.x += dx * self.velocity * factor
+        self.rect.y += dy * self.velocity * factor
 
     def draw(self, window):
 
